@@ -6,22 +6,31 @@ type Props = {
 
 const { variant = 'dark', class: className = '' } = Astro.props as Props;
 
-const wordmark = variant === 'light' ? 'text-white' : 'text-navy-900';
-const ampersand = variant === 'light' ? 'text-gold-400' : 'text-gold-500';
-const sub = variant === 'light' ? 'text-white/60' : 'text-steel-500';
+// On dark backgrounds (light variant) we sit the logo on a soft white card so
+// the metallic blue mark stays legible. On light backgrounds (dark variant)
+// the logo sits transparently against the page.
+const wrapper =
+  variant === 'light'
+    ? 'bg-white/95 ring-1 ring-white/15 shadow-md'
+    : 'bg-transparent';
 ---
 
-<a href="/" class={`group inline-flex items-center gap-3 ${className}`} aria-label="LNH & Partner home">
-  <span class="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-navy-gradient text-white shadow-md ring-1 ring-white/10">
-    <span class="font-display text-lg font-bold tracking-tight">LNH</span>
-    <span class="absolute -bottom-1 -right-1 h-2 w-2 rounded-full bg-gold-500 ring-2 ring-white"></span>
-  </span>
-  <span class="leading-tight">
-    <span class={`block font-display text-lg font-bold tracking-tight ${wordmark}`}>
-      LNH <span class={ampersand}>&</span> Partner
-    </span>
-    <span class={`block text-[10px] font-semibold uppercase tracking-[0.25em] ${sub}`}>
-      Construction · Real Estate
-    </span>
+<a
+  href="/"
+  class={`group inline-flex items-center ${className}`}
+  aria-label="LNH & Partner — home"
+>
+  <span
+    class={`inline-flex items-center justify-center rounded-md px-3 py-1.5 transition-transform duration-300 group-hover:scale-[1.02] ${wrapper}`}
+  >
+    <img
+      src="/assets/images/logo.jpg"
+      alt="LNH & Partner"
+      width="180"
+      height="56"
+      class="h-12 w-auto select-none md:h-14"
+      loading="eager"
+      decoding="async"
+    />
   </span>
 </a>
