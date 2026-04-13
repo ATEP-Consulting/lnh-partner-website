@@ -1,0 +1,92 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { site, services, navLinks } from '@data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="relative bg-navy-950 text-white">
+  <div class="absolute inset-x-0 top-0 h-px bg-gold-gradient opacity-50"></div>
+
+  <div class="container-x grid gap-12 py-20 lg:grid-cols-4">
+    <div class="lg:col-span-1">
+      <Logo variant="light" />
+      <p class="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
+        Engineering-grade construction, real estate and finishing solutions in Miami, Florida.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+        Navigate
+      </h4>
+      <ul class="space-y-3 text-sm text-white/70">
+        {
+          navLinks.map((l) => (
+            <li>
+              <a href={l.href} class="transition-colors hover:text-white">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+        Services
+      </h4>
+      <ul class="space-y-3 text-sm text-white/70">
+        {
+          services.map((s) => (
+            <li class="transition-colors hover:text-white">{s.title}</li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+        Contact
+      </h4>
+      <ul class="space-y-4 text-sm text-white/70">
+        <li class="flex items-start gap-3">
+          <Icon name="phone" class="mt-0.5 h-4 w-4 text-gold-400" />
+          <a href={site.contact.phoneHref} class="transition-colors hover:text-white">
+            {site.contact.phone}
+          </a>
+        </li>
+        <li class="flex items-start gap-3">
+          <Icon name="mail" class="mt-0.5 h-4 w-4 text-gold-400" />
+          <a href={site.contact.emailHref} class="transition-colors hover:text-white">
+            {site.contact.email}
+          </a>
+        </li>
+        <li class="flex items-start gap-3">
+          <Icon name="pin" class="mt-0.5 h-4 w-4 text-gold-400" />
+          <span>{site.contact.address}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row"
+    >
+      <p>© {year} {site.name}. All rights reserved.</p>
+      <p>
+        Proud representative of
+        <a
+          href={site.partner.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gold-400 transition-colors hover:text-gold-300"
+        >
+          {site.partner.name}
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

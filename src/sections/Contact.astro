@@ -1,0 +1,145 @@
+---
+import Icon from '@components/Icon.astro';
+import { site, services } from '@data/site';
+---
+
+<section id="contact" class="section relative overflow-hidden bg-navy-950 text-white">
+  <div class="absolute inset-x-0 top-0 h-px bg-gold-gradient opacity-50"></div>
+  <div class="absolute -right-32 -top-32 -z-10 h-96 w-96 rounded-full bg-gold-500/10 blur-3xl"></div>
+
+  <div class="container-x grid gap-16 lg:grid-cols-2 lg:items-start">
+    <!-- Left: copy + contact details -->
+    <div class="reveal">
+      <p class="eyebrow text-gold-400">Contact</p>
+      <h2 class="heading-section mt-4 text-balance text-white">
+        Tell us about your project.
+        <span class="text-gold-400">We reply within 24 hours.</span>
+      </h2>
+      <p class="lead mt-6 text-white/70">
+        Whether it's a renovation, a ground-up build or a real estate enquiry —
+        share a few details and the team will be in touch.
+      </p>
+
+      <ul class="mt-10 space-y-5">
+        <li class="flex items-start gap-4">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold-500/15 text-gold-400">
+            <Icon name="phone" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+              Phone
+            </p>
+            <a href={site.contact.phoneHref} class="mt-1 block text-lg font-semibold transition-colors hover:text-gold-300">
+              {site.contact.phone}
+            </a>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold-500/15 text-gold-400">
+            <Icon name="mail" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+              Email
+            </p>
+            <a href={site.contact.emailHref} class="mt-1 block text-lg font-semibold transition-colors hover:text-gold-300">
+              {site.contact.email}
+            </a>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold-500/15 text-gold-400">
+            <Icon name="pin" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+              Office
+            </p>
+            <p class="mt-1 text-lg font-semibold">{site.contact.address}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: form -->
+    <form
+      id="contact-form"
+      class="reveal rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:p-10"
+      action="https://formspree.io/f/your-form-id"
+      method="POST"
+      novalidate
+    >
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="block">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+            Full name
+          </span>
+          <input
+            type="text"
+            name="name"
+            required
+            class="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none ring-gold-400 transition focus:border-gold-400 focus:ring-2"
+            placeholder="Jane Doe"
+          />
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+            Email
+          </span>
+          <input
+            type="email"
+            name="email"
+            required
+            class="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none ring-gold-400 transition focus:border-gold-400 focus:ring-2"
+            placeholder="jane@email.com"
+          />
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+            Phone
+          </span>
+          <input
+            type="tel"
+            name="phone"
+            class="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none ring-gold-400 transition focus:border-gold-400 focus:ring-2"
+            placeholder={site.contact.phone}
+          />
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+            Service of interest
+          </span>
+          <select
+            name="service"
+            class="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white outline-none ring-gold-400 transition focus:border-gold-400 focus:ring-2"
+          >
+            <option class="bg-navy-900" value="">Select a service…</option>
+            {services.map((s) => <option class="bg-navy-900" value={s.title}>{s.title}</option>)}
+          </select>
+        </label>
+      </div>
+
+      <label class="mt-5 block">
+        <span class="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+          How can we help?
+        </span>
+        <textarea
+          name="message"
+          rows="5"
+          required
+          class="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none ring-gold-400 transition focus:border-gold-400 focus:ring-2"
+          placeholder="Tell us a bit about your project…"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="btn-primary mt-6 w-full">
+        Send message
+        <Icon name="arrowRight" class="h-4 w-4" />
+      </button>
+
+      <p class="mt-4 text-center text-xs text-white/40">
+        We'll never share your information.
+      </p>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+---
+import Icon from '@components/Icon.astro';
+import { pergolaFeatures } from '@data/site';
+---
+
+<section id="pergolas" class="section relative overflow-hidden bg-navy-900 text-white">
+  <div class="absolute inset-x-0 top-0 h-px bg-gold-gradient opacity-50"></div>
+
+  <div class="container-x">
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <p class="eyebrow justify-center text-gold-400">Pergolas, Sunrooms & Outdoor Spaces</p>
+      <h2 class="heading-section mt-4 text-balance text-white">
+        Outdoor living, engineered for
+        <span class="text-gold-400">South Florida.</span>
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-2 reveal">
+      <!-- Pergola video card -->
+      <div class="group relative overflow-hidden rounded-2xl bg-navy-950 shadow-card">
+        <div class="relative aspect-video w-full">
+          <video
+            class="h-full w-full object-cover"
+            poster="https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=1400&q=80"
+            controls
+            preload="none"
+            playsinline
+          >
+            <source src="/assets/videos/pergola.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6">
+          <span
+            class="inline-block rounded-full bg-gold-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-gold-300"
+          >
+            Pergolas & Cabanas
+          </span>
+          <p class="mt-3 text-sm leading-relaxed text-white/70">
+            Custom designs tailored to each property — aluminum, hardwood, and motorized configurations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sunroom video card -->
+      <div class="group relative overflow-hidden rounded-2xl bg-navy-950 shadow-card">
+        <div class="relative aspect-video w-full">
+          <video
+            class="h-full w-full object-cover"
+            poster="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80"
+            controls
+            preload="none"
+            playsinline
+          >
+            <source src="/assets/videos/sunroom.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6">
+          <span
+            class="inline-block rounded-full bg-gold-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-gold-300"
+          >
+            Sunrooms & Glass Walls
+          </span>
+          <p class="mt-3 text-sm leading-relaxed text-white/70">
+            Glass sliding wall enclosures that turn any patio into a four-season space.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature list + CTA -->
+    <div class="mt-14 grid gap-10 lg:grid-cols-3 lg:items-center reveal">
+      <ul class="space-y-4 lg:col-span-2">
+        {
+          pergolaFeatures.map((f) => (
+            <li class="flex items-start gap-3 text-base text-white/85">
+              <span class="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/20 text-gold-400">
+                <Icon name="check" class="h-3.5 w-3.5" />
+              </span>
+              {f}
+            </li>
+          ))
+        }
+      </ul>
+      <a href="#contact" class="btn-primary justify-self-start lg:justify-self-end">
+        Get a free quote
+        <Icon name="arrowRight" class="h-4 w-4" />
+      </a>
+    </div>
+  </div>
+</section>

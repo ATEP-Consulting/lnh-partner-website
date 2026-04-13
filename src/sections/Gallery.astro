@@ -1,0 +1,20 @@
+---
+import Lightbox from '@components/Lightbox.tsx';
+import { gallery } from '@data/site';
+---
+
+<section id="gallery" class="section bg-navy-50/50">
+  <div class="container-x">
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <p class="eyebrow justify-center">Gallery</p>
+      <h2 class="heading-section mt-4 text-balance">
+        A glimpse of our work in motion.
+      </h2>
+      <p class="lead mt-6">Click any image to enlarge.</p>
+    </div>
+
+    <div class="mt-14 reveal">
+      <Lightbox images={gallery} client:visible />
+    </div>
+  </div>
+</section>

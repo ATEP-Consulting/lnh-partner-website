@@ -1,0 +1,64 @@
+---
+import Icon from '@components/Icon.astro';
+import { partnerProducts, site } from '@data/site';
+---
+
+<section id="partners" class="section bg-white">
+  <div class="container-x">
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <p class="eyebrow justify-center">In partnership with</p>
+      <h2 class="heading-section mt-4 text-balance">
+        Exclusive representatives of
+        <span class="text-gold-500">Style by Global.</span>
+      </h2>
+      <p class="lead mt-6">
+        Through our partnership we deliver premium roller blinds, plantation
+        shutters, motorized smart blinds and decorative window solutions to every project.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        partnerProducts.map((product, i) => (
+          <article
+            class="group overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover reveal"
+            style={`transition-delay: ${i * 60}ms`}
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.title}
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-base font-bold tracking-tight">
+                {product.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-steel-600">
+                {product.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="reveal mt-12 flex flex-wrap justify-center gap-4">
+      <a
+        href={site.partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        Visit Style by Global
+        <Icon name="external" class="h-4 w-4" />
+      </a>
+      <a href="#contact" class="btn-secondary">
+        Request a quote
+        <Icon name="arrowRight" class="h-4 w-4" />
+      </a>
+    </div>
+  </div>
+</section>
