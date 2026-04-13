@@ -132,14 +132,69 @@ import { site, services } from '@data/site';
         ></textarea>
       </label>
 
-      <button type="submit" class="btn-primary mt-6 w-full">
+      <button
+        id="contact-submit"
+        type="submit"
+        disabled
+        class="btn-primary mt-6 w-full disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+      >
         Send message
         <Icon name="arrowRight" class="h-4 w-4" />
       </button>
 
-      <p class="mt-4 text-center text-xs text-white/40">
+      <p id="contact-feedback" class="mt-4 text-center text-xs text-white/40">
         We'll never share your information.
       </p>
     </form>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const btn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const feedback = document.getElementById('contact-feedback') as HTMLElement | null;
+
+  if (form && btn && feedback) {
+    const requiredFields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
+
+    function checkValidity() {
+      const allFilled = Array.from(requiredFields).every((f) => f.value.trim() !== '');
+      btn!.disabled = !allFilled;
+    }
+
+    requiredFields.forEach((f) => {
+      f.addEventListener('input', checkValidity);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          feedback.textContent = "Message sent! We will be in touch shortly.";
+          feedback.classList.remove('text-white/40', 'text-red-400');
+          feedback.classList.add('text-gold-400');
+          form.reset();
+          btn.disabled = true;
+        } else {
+          throw new Error('Failed');
+        }
+      } catch {
+        feedback.textContent = 'Something went wrong. Please try again or email us directly.';
+        feedback.classList.remove('text-white/40', 'text-gold-400');
+        feedback.classList.add('text-red-400');
+        btn.disabled = false;
+      }
+
+      btn.innerHTML = 'Send message <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    });
+  }
+</script>
