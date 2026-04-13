@@ -17,28 +17,33 @@ import { partnerProducts, site } from '@data/site';
       </p>
     </div>
 
-    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {
         partnerProducts.map((product, i) => (
           <article
-            class="group overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover reveal"
+            class="group relative reveal"
             style={`transition-delay: ${i * 60}ms`}
           >
-            <div class="aspect-[4/3] overflow-hidden">
-              <img
-                src={product.image}
-                alt={product.title}
-                loading="lazy"
-                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+            <div class="relative overflow-hidden rounded-xl bg-navy-50 ring-1 ring-navy-900/5 transition-all duration-500 group-hover:ring-navy-900/10">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.08]"
+                />
+              </div>
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-950/35 via-navy-950/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
-            <div class="p-6">
-              <h3 class="font-display text-base font-bold tracking-tight">
+
+            <div class="relative px-1 pt-5">
+              <h3 class="font-display text-[15px] font-bold tracking-tight text-navy-900">
                 {product.title}
               </h3>
               <p class="mt-2 text-sm leading-relaxed text-steel-600">
                 {product.description}
               </p>
+              <span class="mt-4 block h-px w-8 bg-gold-500 transition-all duration-500 group-hover:w-20" />
             </div>
           </article>
         ))

@@ -149,7 +149,7 @@ export const projects: Project[] = [
     description:
       'Civil works for a 3.4 km road extension, including drainage, signage, and lighting infrastructure.',
     image:
-      'https://images.unsplash.com/photo-1517054252787-9bcb1bd7d4ce?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1400&q=80',
   },
   {
     title: 'Brickell Loft Renovation',
@@ -212,7 +212,7 @@ export const gallery: GalleryImage[] = [
     alt: 'Luxury residential property exterior',
   },
   {
-    src: 'https://images.unsplash.com/photo-1591108878030-0caa3c0937da?auto=format&fit=crop&w=1400&q=80',
+    src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80',
     alt: 'Outdoor pergola installation',
   },
 ];

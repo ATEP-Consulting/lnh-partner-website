@@ -1,4 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 
 export type LightboxImage = { src: string; alt: string };
 
@@ -8,8 +9,13 @@ type Props = {
 
 export default function Lightbox({ images }: Props) {
   const [index, setIndex] = useState<number | null>(null);
+  const touchStart = useRef<number | null>(null);
 
-  const close = useCallback(() => setIndex(null), []);
+  const close = useCallback(() => {
+    setIndex(null);
+    document.body.style.overflow = '';
+  }, []);
+
   const next = useCallback(
     () => setIndex((i) => (i === null ? null : (i + 1) % images.length)),
     [images.length],
@@ -37,6 +43,18 @@ export default function Lightbox({ images }: Props) {
       window.removeEventListener('keydown', onKey);
     };
   }, [index, close, next, prev]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const diff = e.changedTouches[0].clientX - touchStart.current;
+    if (Math.abs(diff) > 50) {
+      diff < 0 ? next() : prev();
+    }
+    touchStart.current = null;
+  };
 
   return (
     <>
@@ -68,10 +86,12 @@ export default function Lightbox({ images }: Props) {
         ))}
       </div>
 
-      {index !== null && (
+      {index !== null && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-950/95 p-4 backdrop-blur-sm animate-fade-in"
           onClick={close}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           role="dialog"
           aria-modal="true"
           aria-label="Image viewer"
@@ -134,7 +154,8 @@ export default function Lightbox({ images }: Props) {
               </span>
             </figcaption>
           </figure>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

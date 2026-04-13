@@ -6,13 +6,7 @@ type Props = {
 
 const { variant = 'dark', class: className = '' } = Astro.props as Props;
 
-// On dark backgrounds (light variant) we sit the logo on a soft white card so
-// the metallic blue mark stays legible. On light backgrounds (dark variant)
-// the logo sits transparently against the page.
-const wrapper =
-  variant === 'light'
-    ? 'bg-white/95 ring-1 ring-white/15 shadow-md'
-    : 'bg-transparent';
+const wrapper = 'bg-transparent';
 ---
 
 <a
@@ -24,10 +18,10 @@ const wrapper =
     class={`inline-flex items-center justify-center rounded-md px-3 py-1.5 transition-transform duration-300 group-hover:scale-[1.02] ${wrapper}`}
   >
     <img
-      src="/assets/images/logo.jpg"
+      src="/assets/images/logo.png"
       alt="LNH & Partner"
-      width="180"
-      height="56"
+      width="96"
+      height="72"
       class="h-12 w-auto select-none md:h-14"
       loading="eager"
       decoding="async"

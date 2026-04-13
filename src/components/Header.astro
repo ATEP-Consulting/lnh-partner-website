@@ -6,7 +6,7 @@ import { navLinks } from '@data/site';
 
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+  class="fixed inset-x-0 top-0 z-[60] transition-all duration-500"
   data-state="top"
 >
   <div class="container-x flex items-center justify-between py-4">
@@ -39,7 +39,7 @@ import { navLinks } from '@data/site';
 
     <button
       id="mobile-menu-toggle"
-      class="header-burger relative z-50 inline-flex h-11 w-11 items-center justify-center rounded-md text-white transition-colors lg:hidden"
+      class="header-burger relative inline-flex h-11 w-11 items-center justify-center rounded-md text-white transition-colors lg:hidden"
       aria-label="Open menu"
       aria-controls="mobile-menu"
       aria-expanded="false"
@@ -48,38 +48,39 @@ import { navLinks } from '@data/site';
     </button>
   </div>
 
-  <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    class="pointer-events-none fixed inset-0 z-40 bg-navy-950/95 opacity-0 backdrop-blur-md transition-opacity duration-300 lg:hidden"
-    aria-hidden="true"
-  >
-    <div class="container-x flex h-full flex-col pt-28 pb-12">
-      <nav aria-label="Mobile">
-        <ul class="space-y-4 text-2xl font-display font-semibold text-white">
-          {
-            navLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="mobile-nav-link block border-b border-white/10 py-3 transition-colors hover:text-gold-400"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-      <div class="mt-auto">
-        <a href="#contact" class="btn btn-primary mobile-nav-link w-full">
-          Get a Quote
-          <Icon name="arrowRight" class="h-4 w-4" />
-        </a>
-      </div>
+</header>
+
+<!-- Mobile menu (outside header to avoid backdrop-filter containing block) -->
+<div
+  id="mobile-menu"
+  class="pointer-events-none fixed inset-0 z-50 bg-navy-950/95 opacity-0 backdrop-blur-md transition-opacity duration-300 lg:hidden"
+  aria-hidden="true"
+>
+  <div class="container-x flex h-full flex-col pt-28 pb-12">
+    <nav aria-label="Mobile">
+      <ul class="space-y-4 text-2xl font-display font-semibold text-white">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="mobile-nav-link block border-b border-white/10 py-3 transition-colors hover:text-gold-400"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="mt-auto">
+      <a href="#contact" class="btn btn-primary mobile-nav-link w-full">
+        Get a Quote
+        <Icon name="arrowRight" class="h-4 w-4" />
+      </a>
     </div>
   </div>
-</header>
+</div>
 
 <script>
   const header = document.getElementById('site-header');
@@ -89,6 +90,8 @@ import { navLinks } from '@data/site';
   const darkLogo = header?.querySelector('.header-logo-dark');
   const navLinks = header?.querySelectorAll('.header-nav-link');
   const mobileLinks = menu?.querySelectorAll('.mobile-nav-link');
+
+  let menuOpen = false;
 
   function applyScrolledStyles(scrolled: boolean) {
     if (!header) return;
@@ -128,13 +131,13 @@ import { navLinks } from '@data/site';
   }
 
   function onScroll() {
+    if (menuOpen) return;
     applyScrolledStyles(window.scrollY > 12);
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  let menuOpen = false;
   function setMenu(open: boolean) {
     menuOpen = open;
     if (!menu || !burger) return;
@@ -145,10 +148,14 @@ import { navLinks } from '@data/site';
     burger.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
     if (open) {
-      // Force light state styles for header background while menu open
-      header?.classList.add('!bg-transparent', '!shadow-none');
+      header?.classList.add('!bg-transparent', '!shadow-none', '!backdrop-blur-none');
+      burger?.classList.remove('text-navy-900');
+      burger?.classList.add('text-white');
+      lightLogo?.classList.remove('hidden');
+      darkLogo?.classList.add('hidden');
     } else {
-      header?.classList.remove('!bg-transparent', '!shadow-none');
+      header?.classList.remove('!bg-transparent', '!shadow-none', '!backdrop-blur-none');
+      applyScrolledStyles(window.scrollY > 12);
     }
   }
 

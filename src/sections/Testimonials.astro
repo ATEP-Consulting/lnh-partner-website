@@ -16,7 +16,7 @@ import { testimonials } from '@data/site';
       {
         testimonials.map((t, i) => (
           <figure
-            class="card flex flex-col reveal"
+            class="group relative flex flex-col rounded-2xl bg-white/70 ring-1 ring-navy-900/5 p-8 transition-all duration-500 hover:ring-navy-900/10 reveal"
             style={`transition-delay: ${i * 80}ms`}
           >
             <Icon name="quote" class="h-8 w-8 text-gold-500" />
