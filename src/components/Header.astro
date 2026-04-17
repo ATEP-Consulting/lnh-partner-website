@@ -1,7 +1,10 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { navLinks } from '@data/site';
+
+type Props = { siteConfig: any };
+const { siteConfig } = Astro.props;
+const links = siteConfig?.navLinks ?? [];
 ---
 
 <header
@@ -16,7 +19,7 @@ import { navLinks } from '@data/site';
     <nav class="hidden lg:block" aria-label="Primary">
       <ul class="flex items-center gap-7 text-sm font-medium">
         {
-          navLinks.map((link) => (
+          links.map((link: any) => (
             <li>
               <a
                 href={link.href}
@@ -47,10 +50,8 @@ import { navLinks } from '@data/site';
       <Icon name="menu" class="h-6 w-6" />
     </button>
   </div>
-
 </header>
 
-<!-- Mobile menu (outside header to avoid backdrop-filter containing block) -->
 <div
   id="mobile-menu"
   class="pointer-events-none fixed inset-0 z-50 bg-navy-950/95 opacity-0 backdrop-blur-md transition-opacity duration-300 lg:hidden"
@@ -60,7 +61,7 @@ import { navLinks } from '@data/site';
     <nav aria-label="Mobile">
       <ul class="space-y-4 text-2xl font-display font-semibold text-white">
         {
-          navLinks.map((link) => (
+          links.map((link: any) => (
             <li>
               <a
                 href={link.href}
@@ -96,12 +97,7 @@ import { navLinks } from '@data/site';
   function applyScrolledStyles(scrolled: boolean) {
     if (!header) return;
     if (scrolled) {
-      header.classList.add(
-        'bg-white',
-        'shadow-md',
-        'shadow-navy-900/5',
-        'backdrop-blur-md',
-      );
+      header.classList.add('bg-white', 'shadow-md', 'shadow-navy-900/5', 'backdrop-blur-md');
       header.dataset.state = 'scrolled';
       lightLogo?.classList.add('hidden');
       darkLogo?.classList.remove('hidden');
@@ -112,12 +108,7 @@ import { navLinks } from '@data/site';
       burger?.classList.remove('text-white');
       burger?.classList.add('text-navy-900');
     } else {
-      header.classList.remove(
-        'bg-white',
-        'shadow-md',
-        'shadow-navy-900/5',
-        'backdrop-blur-md',
-      );
+      header.classList.remove('bg-white', 'shadow-md', 'shadow-navy-900/5', 'backdrop-blur-md');
       header.dataset.state = 'top';
       lightLogo?.classList.remove('hidden');
       darkLogo?.classList.add('hidden');

@@ -11,18 +11,37 @@ import Partner from '@sections/Partner.astro';
 import Team from '@sections/Team.astro';
 import Testimonials from '@sections/Testimonials.astro';
 import Contact from '@sections/Contact.astro';
+import { getHomePage, getSiteConfig } from '@lib/queries';
+
+const [siteConfig, homePage] = await Promise.all([
+  getSiteConfig(),
+  getHomePage(),
+]);
+
+const sections = (homePage?.sections ?? []).filter(
+  (s: any) => s.visible !== false,
+);
+
+// Extract services list from the services section to feed the Footer + Contact
+const servicesBlock = sections.find((s: any) => s._type === 'servicesBlock');
+const services = servicesBlock?.services ?? [];
 ---
 
-<Layout>
-  <Hero />
-  <Services />
-  <About />
-  <Why />
-  <Projects />
-  <Pergolas />
-  <Gallery />
-  <Partner />
-  <Team />
-  <Testimonials />
-  <Contact />
+<Layout siteConfig={siteConfig} services={services}>
+  {sections.map((block: any) => {
+    switch (block._type) {
+      case 'heroBlock': return <Hero block={block} />;
+      case 'servicesBlock': return <Services block={block} />;
+      case 'aboutBlock': return <About block={block} />;
+      case 'whyBlock': return <Why block={block} />;
+      case 'projectsBlock': return <Projects block={block} />;
+      case 'pergolasBlock': return <Pergolas block={block} />;
+      case 'galleryBlock': return <Gallery block={block} />;
+      case 'partnerBlock': return <Partner block={block} />;
+      case 'teamBlock': return <Team block={block} />;
+      case 'testimonialsBlock': return <Testimonials block={block} />;
+      case 'contactBlock': return <Contact block={block} siteConfig={siteConfig} services={services} />;
+      default: return null;
+    }
+  })}
 </Layout>

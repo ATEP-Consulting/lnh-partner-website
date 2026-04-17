@@ -2,6 +2,11 @@
 dist/
 .output/
 
+# sanity studio
+studio/dist/
+studio/node_modules/
+studio/.sanity/
+
 # generated types
 .astro/
 

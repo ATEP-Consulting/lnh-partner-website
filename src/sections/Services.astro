@@ -1,40 +1,37 @@
 ---
 import Icon from '@components/Icon.astro';
-import { services } from '@data/site';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const services = block?.services ?? [];
 ---
 
 <section id="services" class="section bg-white">
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">What we do</p>
+      {block?.eyebrow && <p class="eyebrow justify-center">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        Eight specialties.
-        <span class="text-gold-500">One accountable partner.</span>
+        {block?.headingStart}
+        {block?.headingAccent && <><br class="hidden md:inline" /><span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
-      <p class="lead mt-6 text-balance">
-        We deliver every stage of a project under one roof — from earthworks to
-        finishing carpentry — so you only ever speak to one team.
-      </p>
+      {block?.lead && <p class="lead mt-6 text-balance">{block.lead}</p>}
     </div>
 
     <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
-        services.map((service, i) => (
+        services.map((service: any, i: number) => (
           <article
             class="group relative isolate overflow-hidden rounded-xl bg-navy-50/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-card-hover reveal"
             style={`transition-delay: ${i * 60}ms`}
           >
-            {/* Subtle number mark top-right */}
             <span class="absolute right-5 top-5 font-display text-xs font-bold tracking-[0.2em] text-navy-900/30 transition-colors duration-500 group-hover:text-gold-500">
               {String(i + 1).padStart(2, '0')}
             </span>
 
-            {/* Icon */}
             <div class="mb-7 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-navy-800 transition-all duration-500 group-hover:bg-navy-900 group-hover:text-gold-400">
               <Icon name={service.icon} class="h-5 w-5" />
             </div>
 
-            {/* Content */}
             <h3 class="font-display text-[17px] font-bold leading-tight tracking-tight text-navy-900">
               {service.title}
             </h3>
@@ -42,7 +39,6 @@ import { services } from '@data/site';
               {service.description}
             </p>
 
-            {/* Gold underline that grows on hover */}
             <span class="pointer-events-none absolute inset-x-7 bottom-0 h-px w-8 bg-gold-500 transition-all duration-500 group-hover:w-[calc(100%-3.5rem)]" />
           </article>
         ))

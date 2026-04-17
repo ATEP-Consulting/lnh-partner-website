@@ -2,17 +2,22 @@
 import '../styles/global.css';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import { site } from '@data/site';
 
 type Props = {
   title?: string;
   description?: string;
+  siteConfig: any;
+  services?: any[];
 };
 
+const { siteConfig, services = [] } = Astro.props as Props;
+
 const {
-  title = `${site.name} — ${site.tagline}`,
-  description = site.description,
+  title = `${siteConfig?.name || 'LNH & Partner'} — ${siteConfig?.tagline || ''}`,
+  description = siteConfig?.description || '',
 } = Astro.props as Props;
+
+const siteUrl = siteConfig?.url || 'https://www.lnhpartner.com';
 ---
 
 <!doctype html>
@@ -26,28 +31,24 @@ const {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0f1a36" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={site.url} />
-    <meta property="og:site_name" content={site.name} />
-    <meta property="og:image" content={`${site.url}/og-image.png`} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content={siteConfig?.name} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${site.url}/og-image.png`} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
 
-    <!-- SEO -->
-    <link rel="canonical" href={site.url} />
+    <link rel="canonical" href={siteUrl} />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -56,14 +57,13 @@ const {
     />
   </head>
   <body class="bg-white text-navy-900">
-    <Header />
+    <Header siteConfig={siteConfig} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer siteConfig={siteConfig} services={services} />
 
     <script>
-      // Reveal-on-scroll using IntersectionObserver
       const els = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window && els.length) {
         const io = new IntersectionObserver(

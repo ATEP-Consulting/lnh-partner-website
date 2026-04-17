@@ -1,9 +1,10 @@
 ---
-import { whyPoints } from '@data/site';
+type Props = { block: any };
+const { block } = Astro.props;
+const points = block?.points ?? [];
 ---
 
 <section class="section relative overflow-hidden bg-navy-950 text-white">
-  <!-- Decorative background -->
   <div class="absolute inset-0 -z-10 opacity-30">
     <img
       src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=70"
@@ -16,15 +17,17 @@ import { whyPoints } from '@data/site';
 
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center text-gold-400">Why LNH & Partner</p>
+      {block?.eyebrow && <p class="eyebrow justify-center text-gold-400">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance text-white">
-        Five reasons clients keep coming back.
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-400">{block.headingAccent}</span></>}
       </h2>
+      {block?.lead && <p class="lead mt-6 text-white/70">{block.lead}</p>}
     </div>
 
     <div class="mt-16 grid gap-px overflow-hidden rounded-2xl bg-white/10 lg:grid-cols-5 md:grid-cols-2 reveal">
       {
-        whyPoints.map((p, i) => (
+        points.map((p: any, i: number) => (
           <div class="bg-navy-950 p-8 transition-colors duration-300 hover:bg-navy-900">
             <div class="font-display text-3xl font-bold text-gold-400">
               {String(i + 1).padStart(2, '0')}

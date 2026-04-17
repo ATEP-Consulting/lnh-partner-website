@@ -1,25 +1,26 @@
 ---
 import Icon from '@components/Icon.astro';
-import { partnerProducts, site } from '@data/site';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const products = block?.products ?? [];
 ---
 
 <section id="partners" class="section bg-white">
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">In partnership with</p>
+      {block?.eyebrow && <p class="eyebrow justify-center">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        Exclusive representatives of
-        <span class="text-gold-500">Style by Global.</span>
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
-      <p class="lead mt-6">
-        Through our partnership we deliver premium roller blinds, plantation
-        shutters, motorized smart blinds and decorative window solutions to every project.
-      </p>
+      {block?.lead && <p class="lead mt-6">{block.lead}</p>}
     </div>
 
     <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {
-        partnerProducts.map((product, i) => (
+        products.map((product: any, i: number) => (
           <article
             class="group relative reveal"
             style={`transition-delay: ${i * 60}ms`}
@@ -27,8 +28,8 @@ import { partnerProducts, site } from '@data/site';
             <div class="relative overflow-hidden rounded-xl bg-navy-50 ring-1 ring-navy-900/5 transition-all duration-500 group-hover:ring-navy-900/10">
               <div class="aspect-[4/5] overflow-hidden">
                 <img
-                  src={product.image}
-                  alt={product.title}
+                  src={imageSrc(product.image, 1000)}
+                  alt={product.image?.alt || product.title}
                   loading="lazy"
                   class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.08]"
                 />
@@ -50,20 +51,22 @@ import { partnerProducts, site } from '@data/site';
       }
     </div>
 
-    <div class="reveal mt-12 flex flex-wrap justify-center gap-4">
-      <a
-        href={site.partner.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-primary"
-      >
-        Visit Style by Global
-        <Icon name="external" class="h-4 w-4" />
-      </a>
-      <a href="#contact" class="btn-secondary">
-        Request a quote
-        <Icon name="arrowRight" class="h-4 w-4" />
-      </a>
-    </div>
+    {block?.ctaLabel && (
+      <div class="reveal mt-12 flex flex-wrap justify-center gap-4">
+        <a
+          href={block.ctaHref || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          {block.ctaLabel}
+          <Icon name="external" class="h-4 w-4" />
+        </a>
+        <a href="#contact" class="btn-secondary">
+          Request a quote
+          <Icon name="arrowRight" class="h-4 w-4" />
+        </a>
+      </div>
+    )}
   </div>
 </section>

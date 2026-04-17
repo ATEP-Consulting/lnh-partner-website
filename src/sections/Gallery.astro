@@ -1,20 +1,29 @@
 ---
 import Lightbox from '@components/Lightbox.tsx';
-import { gallery } from '@data/site';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+
+const images = (block?.images ?? []).map((g: any) => ({
+  src: imageSrc(g.image, 1400),
+  alt: g.alt,
+}));
 ---
 
 <section id="gallery" class="section bg-navy-50/50">
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">Gallery</p>
+      {block?.eyebrow && <p class="eyebrow justify-center">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        A glimpse of our work in motion.
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
-      <p class="lead mt-6">Click any image to enlarge.</p>
+      {block?.lead && <p class="lead mt-6">{block.lead}</p>}
     </div>
 
     <div class="mt-14 reveal">
-      <Lightbox images={gallery} client:visible />
+      <Lightbox images={images} client:visible />
     </div>
   </div>
 </section>

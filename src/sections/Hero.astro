@@ -1,6 +1,13 @@
 ---
 import Icon from '@components/Icon.astro';
-import { stats } from '@data/site';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+
+const bgUrl = block?.backgroundImage
+  ? imageSrc(block.backgroundImage, 2400)
+  : 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=80';
 ---
 
 <section
@@ -10,7 +17,7 @@ import { stats } from '@data/site';
   <!-- Background image -->
   <div class="absolute inset-0 -z-10">
     <img
-      src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=80"
+      src={bgUrl}
       alt=""
       class="h-full w-full animate-slow-zoom object-cover"
       loading="eager"
@@ -22,50 +29,58 @@ import { stats } from '@data/site';
 
   <div class="container-x relative pt-32 pb-20">
     <div class="max-w-3xl">
-      <p class="eyebrow reveal animate-fade-in opacity-0" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
-        Miami, Florida · Engineered to last
-      </p>
+      {block?.eyebrow && (
+        <p class="eyebrow reveal animate-fade-in opacity-0" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+          {block.eyebrow}
+        </p>
+      )}
       <h1
         class="heading-display mt-6 text-balance animate-fade-up opacity-0"
         style="animation-delay: 0.25s; animation-fill-mode: forwards;"
       >
-        Building beyond
-        <span class="relative inline-block">
-          <span class="bg-gold-gradient bg-[length:200%_auto] bg-clip-text text-transparent animate-shimmer">
-            structures.
-          </span>
-        </span>
-        <br />Building trust.
+        {block?.headingStart}
+        {block?.headingAccent && (
+          <>
+            {' '}
+            <span class="relative inline-block">
+              <span class="bg-gold-gradient bg-[length:200%_auto] bg-clip-text text-transparent animate-shimmer">
+                {block.headingAccent}
+              </span>
+            </span>
+          </>
+        )}
+        {block?.headingEnd && <><br />{block.headingEnd}</>}
       </h1>
-      <p
-        class="lead mt-7 max-w-2xl text-white/75 animate-fade-up opacity-0"
-        style="animation-delay: 0.45s; animation-fill-mode: forwards;"
-      >
-        From the foundations to the finishing touches — LNH & Partner delivers
-        construction, renovation, infrastructure and real estate projects with
-        engineering-grade precision across South Florida.
-      </p>
+      {block?.lead && (
+        <p
+          class="lead mt-7 max-w-2xl text-white/75 animate-fade-up opacity-0"
+          style="animation-delay: 0.45s; animation-fill-mode: forwards;"
+        >
+          {block.lead}
+        </p>
+      )}
 
       <div
         class="mt-10 flex flex-wrap gap-4 animate-fade-up opacity-0"
         style="animation-delay: 0.6s; animation-fill-mode: forwards;"
       >
-        <a href="#contact" class="btn-primary">
-          Start your project
-          <Icon name="arrowRight" class="h-4 w-4" />
-        </a>
-        <a href="#projects" class="btn-ghost-light">
-          View our work
-        </a>
+        {block?.primaryCtaLabel && (
+          <a href={block.primaryCtaHref || '#contact'} class="btn-primary">
+            {block.primaryCtaLabel}
+            <Icon name="arrowRight" class="h-4 w-4" />
+          </a>
+        )}
+        {block?.secondaryCtaLabel && (
+          <a href={block.secondaryCtaHref || '#projects'} class="btn-ghost-light">
+            {block.secondaryCtaLabel}
+          </a>
+        )}
       </div>
     </div>
 
-    <!-- Stats -->
-    <dl
-      class="mt-20 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-white/10 pt-12 sm:grid-cols-4 reveal"
-    >
-      {
-        stats.map((s) => (
+    {block?.stats?.length > 0 && (
+      <dl class="mt-20 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-white/10 pt-12 sm:grid-cols-4 reveal">
+        {block.stats.map((s: any) => (
           <div>
             <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
               {s.label}
@@ -74,12 +89,11 @@ import { stats } from '@data/site';
               {s.value}
             </dd>
           </div>
-        ))
-      }
-    </dl>
+        ))}
+      </dl>
+    )}
   </div>
 
-  <!-- Scroll cue -->
   <a
     href="#services"
     class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 text-white/60 transition-colors hover:text-white md:block"

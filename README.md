@@ -1,31 +1,54 @@
 # LNH & Partner — Website
 
-Static marketing website for **LNH & Partner** — construction, renovations,
-earthworks, infrastructure, real estate, pergolas and decoration in Miami,
-Florida.
+Static marketing website for **LNH & Partner** (Miami, Florida).
+Content is managed via **Sanity CMS** → the owner edits text, images and
+sections from a web panel, and the site rebuilds automatically.
 
 Built with:
 
-- [Astro 5](https://astro.build/) — content-first framework, ships zero JS by default
-- [React 18](https://react.dev/) — used only for the gallery lightbox (`client:visible`)
+- [Astro 5](https://astro.build/) — static-first framework, ships zero JS by default
+- [React 18](https://react.dev/) — used only for the gallery lightbox
 - [Tailwind CSS 3](https://tailwindcss.com/)
+- [Sanity](https://sanity.io/) — headless CMS (free plan)
 - TypeScript (strict)
 
-The whole site is statically pre-rendered, so it loads in milliseconds and
-indexes perfectly on Google.
+---
+
+## Architecture
+
+```
+/  (this repo)
+├── src/                    ← the Astro site (what visitors see)
+├── studio/                 ← the Sanity Studio (what the owner edits in)
+└── scripts/migrate-to-sanity.ts  ← one-off seed script (already run)
+```
+
+Data flow: **Owner edits in Studio → Sanity stores content → Vercel webhook
+triggers a rebuild → static HTML re-published → visitors see changes in ~2 min.**
 
 ---
 
 ## Quick start (local dev)
 
 ```bash
-npm install      # install deps
-npm run dev      # http://localhost:4321
-npm run build    # static output → dist/
-npm run preview  # preview the production build locally
+# 1) Run the website locally
+npm install
+npm run dev               # http://localhost:4321
+
+# 2) Run the CMS locally
+cd studio
+npm install
+npm run dev               # http://localhost:3333  (login with Google)
 ```
 
-Requires Node 18+ (tested with Node 22).
+Requires Node 18+.
+
+`.env` must contain:
+```
+PUBLIC_SANITY_PROJECT_ID=z2y11586
+PUBLIC_SANITY_DATASET=production
+SANITY_WRITE_TOKEN=<only needed for migration scripts — see sanity.io/manage>
+```
 
 ---
 
@@ -34,111 +57,112 @@ Requires Node 18+ (tested with Node 22).
 ```
 src/
 ├── components/      # Logo, Header, Footer, Icon, Lightbox.tsx (React)
-├── data/site.ts     # ⭐ ALL EDITABLE COPY — phones, services, team, etc.
-├── layouts/         # Layout.astro (head, fonts, header, footer, scroll-reveal)
-├── pages/           # index.astro — entry point
+├── layouts/         # Layout.astro (head, fonts, header, footer)
+├── lib/             # sanity.ts (client) + queries.ts (GROQ queries)
+├── pages/index.astro  # entry — fetches homePage from Sanity, renders blocks
 ├── sections/        # Hero, Services, About, Why, Projects, Pergolas,
 │                    # Gallery, Partner, Team, Testimonials, Contact
+│                    # — each renders a Sanity block
 └── styles/global.css
 
-public/
-├── favicon.svg
-├── robots.txt
-└── assets/
-    ├── images/      # luis.jpg, nilyan.jpg (TODO: add)
-    └── videos/      # pergola.mp4, sunroom.mp4 (TODO: add)
+studio/
+├── schemas/
+│   ├── documents/   # siteConfig + homePage singletons
+│   ├── blocks/      # heroBlock, servicesBlock, etc. (11 sections)
+│   └── objects/     # serviceItem, project, teamMember, etc.
+├── sanity.config.ts # Studio config + Presentation tool
+└── structure.ts     # Sidebar layout in the Studio
 ```
 
-### Where to edit content
+---
 
-Almost all text on the site lives in **`src/data/site.ts`**.
-You can change phone numbers, services, team bios, testimonials, projects, etc.
-without touching any component.
+## Deploying the Studio (one-time)
 
-### Where to add real photos & videos
+The Studio is a separate mini-app the owner logs into to edit content.
+Deploy it to Sanity's free hosting:
 
-Drop the binary files into `public/assets/`:
+```bash
+cd studio
+npx sanity login          # first time only, opens browser
+npm run deploy            # choose a hostname → e.g. "lnh-partner"
+# → the studio will live at https://lnh-partner.sanity.studio
+```
 
-| File | Path | Used in |
-|---|---|---|
-| Luis (CEO) photo | `public/assets/images/luis.jpg` | Team section |
-| Nilyan (Realtor) photo | `public/assets/images/nilyan.jpg` | Team section |
-| Pergola video | `public/assets/videos/pergola.mp4` | Pergolas section |
-| Sunroom video | `public/assets/videos/sunroom.mp4` | Pergolas section |
+Send that URL to the owner. They log in with Google and can edit everything.
 
-If a file is missing, the page still renders fine — the team cards show
-initials and the videos show a poster image.
+### Adding the owner as a user
 
-The hero, services, projects and gallery currently use Unsplash stock images.
-To swap in real photos, update the URLs in `src/data/site.ts`.
+In [sanity.io/manage](https://sanity.io/manage) → project `LNH Partner` →
+**Members → Invite member** → enter their email → role **Editor** (not Admin).
 
 ---
 
-## Deploying to Vercel
+## Deploying the website to Vercel
 
-Vercel auto-detects Astro and configures everything. No build settings needed.
+1. Push this repo to GitHub.
+2. [vercel.com](https://vercel.com) → **Add New → Project** → import the repo.
+3. Vercel auto-detects Astro. Before the first deploy, set env vars:
+   - `PUBLIC_SANITY_PROJECT_ID=z2y11586`
+   - `PUBLIC_SANITY_DATASET=production`
+4. **Deploy.**
 
-### One-time setup
+### Custom domain
 
-1. Push this repo to GitHub:
-   ```bash
-   gh repo create lnh-partner-website --private --source=. --push
-   # OR manually:
-   #   git remote add origin git@github.com:<user>/<repo>.git
-   #   git push -u origin master
-   ```
-
-2. Go to [vercel.com](https://vercel.com), sign in with GitHub.
-3. Click **Add New → Project** → import the repo → **Deploy**.
-
-That's it — every push to `master` auto-deploys to a `*.vercel.app` URL.
-
-### Connecting the custom domain (`www.lnhpartner.com`)
-
-The domain is registered with **GoDaddy**.
-
-1. In the Vercel project → **Settings → Domains** → add `lnhpartner.com` AND `www.lnhpartner.com`.
-2. Vercel will show you the DNS records to set. They will look like:
-   - `A` record on `@` → `76.76.21.21`
-   - `CNAME` record on `www` → `cname.vercel-dns.com`
-3. Log in to GoDaddy → **My Products → DNS** for `lnhpartner.com`.
-4. Delete any existing `A`/`CNAME` records that conflict (the parked GoDaddy ones).
-5. Add the records exactly as shown by Vercel.
-6. Wait 5–30 minutes for DNS propagation.
-
-Once propagated, https://www.lnhpartner.com will serve the site with an automatic
-free SSL certificate from Vercel.
+Vercel → Project → **Settings → Domains** → add `lnhpartner.com` and
+`www.lnhpartner.com`. Follow their DNS instructions (GoDaddy in our case).
 
 ---
 
-## Adding a working contact form
+## Making content updates auto-rebuild the site
 
-The contact form currently posts to a **Formspree** placeholder. To make it work:
+When the owner edits something in the Studio, Sanity can ping Vercel so the
+site rebuilds without anyone touching code:
 
-1. Create a free account at [formspree.io](https://formspree.io).
-2. Create a new form, copy your form ID (looks like `xpzgkqld`).
-3. In `src/sections/Contact.astro`, replace the action URL:
-   ```astro
-   action="https://formspree.io/f/your-form-id"
-   ```
-   with your real form ID.
-4. Commit & push — Vercel redeploys automatically.
+1. **In Vercel**: Project → **Settings → Git → Deploy Hooks** → create a hook
+   named `sanity` targeting branch `main`. Copy the URL.
+2. **In [sanity.io/manage](https://sanity.io/manage)** → API → Webhooks →
+   **Create webhook**:
+   - Name: `Vercel rebuild`
+   - URL: (paste the Vercel Deploy Hook URL)
+   - Dataset: `production`
+   - Trigger on: Create, Update, Delete
+   - HTTP method: `POST`
+3. Save.
 
-Alternatives: [Web3Forms](https://web3forms.com), [Basin](https://usebasin.com),
-or a Vercel Serverless Function in `src/pages/api/`.
+From now on, every save in the Studio → rebuild in ~90 seconds → site updated.
 
 ---
 
-## Editing for non-developers
+## Visual editing (optional, for the owner's comfort)
 
-If at some point Luis or Nilyan need to edit copy without git/code, the
-cheapest path is:
+The Studio already has **Presentation mode** configured. To use it:
 
-- Connect a free CMS like [Sanity](https://sanity.io) or [Decap CMS](https://decapcms.org/),
-- Move content from `src/data/site.ts` into the CMS,
-- Vercel rebuilds on every CMS change.
+1. In the Studio sidebar, click the **Presentation** icon (eye).
+2. Set the site URL (first time): e.g. `https://www.lnhpartner.com`.
+3. The owner sees the live site next to the editor and can click any section
+   to jump straight to editing it.
 
-This is a 1-day job, optional.
+(For live in-browser edits without rebuilds, Astro would need SSR mode. For
+now, saves trigger a rebuild in ~90 seconds, which is fine for this use case.)
+
+---
+
+## Contact form (Formspree)
+
+The contact form uses Formspree. The form ID is now stored in Sanity under
+**Home → Contact section → Formspree form ID**. The owner can replace it
+without any code change.
+
+---
+
+## Re-running the seed migration
+
+```bash
+npx tsx scripts/migrate-to-sanity.ts
+```
+
+⚠ This **overwrites** the `siteConfig` and `homePage` documents.
+Only use on an empty/test dataset.
 
 ---
 

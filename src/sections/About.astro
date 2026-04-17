@@ -1,70 +1,61 @@
 ---
 import Icon from '@components/Icon.astro';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const imgUrl = block?.image ? imageSrc(block.image, 1200) : '';
+const highlights = block?.highlights ?? [];
 ---
 
 <section id="about" class="section relative bg-navy-50/40">
   <div class="container-x grid gap-16 lg:grid-cols-2 lg:items-center">
-    <!-- Image -->
     <div class="relative reveal">
       <div class="aspect-[4/5] overflow-hidden rounded-2xl shadow-card">
         <img
-          src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80"
-          alt="LNH & Partner team on site"
+          src={imgUrl}
+          alt={block?.image?.alt || 'LNH & Partner'}
           class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
           loading="lazy"
         />
       </div>
 
-      <!-- Floating badge -->
-      <div class="absolute -bottom-6 -left-6 hidden rounded-xl border border-gold-200 bg-white p-6 shadow-card md:block">
-        <p class="font-display text-3xl font-bold text-navy-900">15+</p>
-        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-steel-500">
-          Years of experience
-        </p>
-      </div>
+      {block?.badgeValue && (
+        <div class="absolute -bottom-6 -left-6 hidden rounded-xl border border-gold-200 bg-white p-6 shadow-card md:block">
+          <p class="font-display text-3xl font-bold text-navy-900">{block.badgeValue}</p>
+          {block?.badgeLabel && (
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-steel-500">
+              {block.badgeLabel}
+            </p>
+          )}
+        </div>
+      )}
 
-      <!-- Decorative -->
       <div class="absolute -right-4 -top-4 -z-10 h-32 w-32 rounded-full bg-gold-500/10 blur-2xl"></div>
     </div>
 
-    <!-- Content -->
     <div class="reveal">
-      <p class="eyebrow">About LNH & Partner</p>
+      {block?.eyebrow && <p class="eyebrow">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        An engineering-led group, built on
-        <span class="text-gold-500">trust and precision.</span>
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
 
-      <p class="lead mt-6">
-        Founded by a Civil Engineer with two decades of hands-on experience,
-        LNH & Partner brings the discipline of engineering to every project —
-        whether it's a home renovation, a road extension or a real estate transaction.
-      </p>
+      {block?.lead && <p class="lead mt-6">{block.lead}</p>}
+      {block?.body && <p class="mt-5 text-base leading-relaxed text-steel-600">{block.body}</p>}
 
-      <p class="mt-5 text-base leading-relaxed text-steel-600">
-        We operate as a vertically integrated group: construction, real estate,
-        finishing, and exclusive distribution of premium window coverings through our
-        partnership with Style by Global. That means fewer middlemen, faster decisions,
-        and a single team accountable for the result.
-      </p>
-
-      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
-        {
-          [
-            'Licensed & insured in Florida',
-            'In-house design & engineering',
-            'Transparent fixed-price quotes',
-            'On-site project supervision',
-          ].map((point) => (
+      {highlights.length > 0 && (
+        <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+          {highlights.map((point: any) => (
             <li class="flex items-center gap-3 text-sm font-medium">
               <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gold-500/15 text-gold-600">
                 <Icon name="check" class="h-3.5 w-3.5" />
               </span>
-              {point}
+              {point.text}
             </li>
-          ))
-        }
-      </ul>
+          ))}
+        </ul>
+      )}
     </div>
   </div>
 </section>

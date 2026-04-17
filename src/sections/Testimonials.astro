@@ -1,20 +1,24 @@
 ---
 import Icon from '@components/Icon.astro';
-import { testimonials } from '@data/site';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const items = block?.items ?? [];
 ---
 
 <section class="section bg-white">
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">Client voices</p>
+      {block?.eyebrow && <p class="eyebrow justify-center">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        Trusted by homeowners, developers and investors.
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
     </div>
 
     <div class="mt-14 grid gap-6 lg:grid-cols-3">
       {
-        testimonials.map((t, i) => (
+        items.map((t: any, i: number) => (
           <figure
             class="group relative flex flex-col rounded-2xl bg-white/70 ring-1 ring-navy-900/5 p-8 transition-all duration-500 hover:ring-navy-900/10 reveal"
             style={`transition-delay: ${i * 80}ms`}

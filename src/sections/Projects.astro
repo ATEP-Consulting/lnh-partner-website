@@ -1,16 +1,20 @@
 ---
 import Icon from '@components/Icon.astro';
-import { projects } from '@data/site';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const projects = block?.projects ?? [];
 ---
 
 <section id="projects" class="section bg-white">
   <div class="container-x">
     <div class="reveal flex flex-col items-end justify-between gap-6 md:flex-row md:items-end">
       <div class="max-w-2xl">
-        <p class="eyebrow">Featured projects</p>
+        {block?.eyebrow && <p class="eyebrow">{block.eyebrow}</p>}
         <h2 class="heading-section mt-4 text-balance">
-          A track record built across
-          <span class="text-gold-500">every category we touch.</span>
+          {block?.headingStart}
+          {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
         </h2>
       </div>
       <a href="#contact" class="btn-secondary self-start md:self-end">
@@ -21,15 +25,15 @@ import { projects } from '@data/site';
 
     <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        projects.map((p, i) => (
+        projects.map((p: any, i: number) => (
           <article
             class="group relative overflow-hidden rounded-2xl shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover reveal"
             style={`transition-delay: ${(i % 3) * 80}ms`}
           >
             <div class="aspect-[4/5] overflow-hidden">
               <img
-                src={p.image}
-                alt={p.title}
+                src={imageSrc(p.image, 1200)}
+                alt={p.image?.alt || p.title}
                 loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />

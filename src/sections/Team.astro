@@ -1,5 +1,9 @@
 ---
-import { team } from '@data/site';
+import { imageSrc } from '@lib/sanity';
+
+type Props = { block: any };
+const { block } = Astro.props;
+const members = block?.members ?? [];
 
 function initials(name: string) {
   return name
@@ -14,15 +18,17 @@ function initials(name: string) {
 <section id="team" class="section bg-navy-50/40">
   <div class="container-x">
     <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">Leadership</p>
+      {block?.eyebrow && <p class="eyebrow justify-center">{block.eyebrow}</p>}
       <h2 class="heading-section mt-4 text-balance">
-        The people behind every project.
+        {block?.headingStart}
+        {block?.headingAccent && <> <span class="text-gold-500">{block.headingAccent}</span></>}
       </h2>
+      {block?.lead && <p class="lead mt-6">{block.lead}</p>}
     </div>
 
     <div class="mt-14 grid justify-center gap-8 sm:grid-cols-2 lg:max-w-3xl lg:mx-auto reveal">
       {
-        team.map((member, i) => (
+        members.map((member: any, i: number) => (
           <article
             class="group relative rounded-2xl bg-white/70 ring-1 ring-navy-900/5 px-6 pb-7 pt-10 transition-all duration-500 hover:ring-navy-900/10"
             style={`transition-delay: ${i * 60}ms`}
@@ -32,12 +38,14 @@ function initials(name: string) {
                 <span class="absolute inset-0 flex items-center justify-center font-display text-5xl font-bold text-white/30">
                   {initials(member.name)}
                 </span>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  class="relative h-full w-full object-cover object-top scale-110 transition-transform duration-[900ms] ease-out group-hover:scale-[1.08]"
-                />
+                {member.image && (
+                  <img
+                    src={imageSrc(member.image, 800)}
+                    alt={member.image?.alt || member.name}
+                    loading="lazy"
+                    class="relative h-full w-full object-cover object-top scale-110 transition-transform duration-[900ms] ease-out group-hover:scale-[1.08]"
+                  />
+                )}
               </div>
             </div>
             <div class="relative pt-5 text-center">
