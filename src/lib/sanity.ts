@@ -18,7 +18,19 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
 
-export function imageSrc(source: SanityImageSource | undefined, width = 1600): string {
+// Content is detached from Sanity: images live in /public/assets/images.
+// A Sanity asset ref "image-<hash>-<WxH>-<ext>" maps to "/assets/images/<hash>-<WxH>.<ext>".
+export function imageSrc(source: SanityImageSource | undefined, _width = 1600): string {
   if (!source) return '';
-  return urlFor(source).width(width).auto('format').url();
+  const ref =
+    typeof source === 'string' ? source : (source as any)?.asset?._ref;
+  if (typeof ref === 'string' && ref.startsWith('image-')) {
+    const body = ref.slice('image-'.length);
+    const lastDash = body.lastIndexOf('-');
+    const ext = body.slice(lastDash + 1);
+    const name = body.slice(0, lastDash);
+    return `/assets/images/${name}.${ext}`;
+  }
+  if (typeof source === 'string') return source;
+  return '';
 }

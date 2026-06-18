@@ -11,12 +11,10 @@ import Partner from '@sections/Partner.astro';
 import Team from '@sections/Team.astro';
 import Testimonials from '@sections/Testimonials.astro';
 import Contact from '@sections/Contact.astro';
-import { getHomePage, getSiteConfig } from '@lib/queries';
+import content from '../data/content.json';
 
-const [siteConfig, homePage] = await Promise.all([
-  getSiteConfig(),
-  getHomePage(),
-]);
+const siteConfig: any = (content as any).siteConfig;
+const homePage: any = (content as any).homePage;
 
 const sections = (homePage?.sections ?? []).filter(
   (s: any) => s.visible !== false,
