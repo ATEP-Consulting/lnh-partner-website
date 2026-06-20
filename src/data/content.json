@@ -16,39 +16,39 @@
             "_type": "reference"
           }
         },
-        "eyebrow": "Miami, Florida · Engineered to last",
-        "headingAccent": "structures.",
-        "headingEnd": "Building trust.",
-        "headingStart": "Building beyond",
-        "lead": "From the foundations to the finishing touches — LNH & Partner delivers construction, renovation, infrastructure and real estate projects with engineering-grade precision across South Florida.",
-        "primaryCtaHref": "#contact",
-        "primaryCtaLabel": "Start your project",
-        "secondaryCtaHref": "#projects",
-        "secondaryCtaLabel": "View our work",
+        "eyebrow": "Renovation & Remodeling Specialists",
+        "headingStart": "We",
+        "headingAccent": "remodel",
+        "headingEnd": "your space",
+        "lead": "From kitchens and bathrooms to full home and commercial transformations — LNH & Partner brings your remodeling vision to life with quality craftsmanship and attention to detail.",
+        "primaryCtaHref": "#services",
+        "primaryCtaLabel": "Our renovation services",
+        "secondaryCtaHref": "#contact",
+        "secondaryCtaLabel": "Get a free quote",
         "stats": [
           {
             "_key": "18f8b0d27ed44219",
             "_type": "statItem",
-            "label": "Years of experience",
+            "label": "Years Experience",
             "value": "15+"
           },
           {
             "_key": "7d877a3adf88470c",
             "_type": "statItem",
-            "label": "Projects delivered",
+            "label": "Projects Delivered",
             "value": "200+"
           },
           {
             "_key": "992609c8500e4451",
             "_type": "statItem",
-            "label": "Team specialists",
-            "value": "40+"
+            "label": "Expert Team",
+            "value": "50+"
           },
           {
             "_key": "05f697a40ff040f9",
             "_type": "statItem",
-            "label": "Client satisfaction",
-            "value": "98%"
+            "label": "Client Satisfaction",
+            "value": "100%"
           }
         ],
         "visible": true
@@ -56,248 +56,67 @@
       {
         "_key": "3d21ffa830ed4ab3",
         "_type": "servicesBlock",
-        "eyebrow": "What we do",
-        "headingAccent": "One accountable partner.",
-        "headingStart": "Eight specialties.",
-        "lead": "We deliver every stage of a project under one roof — from earthworks to finishing carpentry — so you only ever speak to one team.",
+        "eyebrow": "Our Specialty",
+        "headingStart": "Renovations &",
+        "headingAccent": "remodeling",
+        "lead": "Remodeling is where we excel — kitchens, bathrooms, full homes, and commercial spaces transformed with quality craftsmanship. We also offer complete construction support to bring any project to life.",
         "services": [
-          {
-            "_key": "d65e473f2a3a466c",
-            "_type": "serviceItem",
-            "description": "Ground-up construction of residential, commercial, and mixed-use developments, delivered on schedule and to the highest engineering standards.",
-            "icon": "building",
-            "title": "Construction"
-          },
           {
             "_key": "661a5d5b124b47c5",
             "_type": "serviceItem",
-            "description": "Full and partial remodels that respect the existing structure while transforming spaces, finishes, and functionality.",
+            "badge": "Specialty",
+            "description": "Full-scale interior and exterior renovation work — transforming existing spaces into modern, functional, and beautiful environments.",
             "icon": "hammer",
             "title": "Renovations"
           },
           {
-            "_key": "2390e39bce774bf9",
-            "_type": "serviceItem",
-            "description": "Excavation, grading, and site preparation executed with precision equipment and certified operators.",
-            "icon": "shovel",
-            "title": "Earthworks"
-          },
-          {
-            "_key": "adceedb746534445",
-            "_type": "serviceItem",
-            "description": "Roads, drainage, utilities, and civil works engineered to outlast and outperform.",
-            "icon": "road",
-            "title": "Infrastructure"
-          },
-          {
-            "_key": "82ddabb5d75e42e8",
-            "_type": "serviceItem",
-            "description": "Acquisition, brokerage, and asset management across residential and commercial portfolios in Florida.",
-            "icon": "key",
-            "title": "Real Estate"
-          },
-          {
-            "_key": "fb7c5dbd46f0454f",
-            "_type": "serviceItem",
-            "description": "Single point of accountability across design, permitting, construction, and handover.",
-            "icon": "clipboard",
-            "title": "Project Management"
-          },
-          {
             "_key": "3024726588f24e05",
             "_type": "serviceItem",
-            "description": "Custom-designed pergolas, cabanas, and outdoor structures engineered for the South Florida climate.",
+            "description": "Custom-designed and built pergolas for residential and commercial outdoor spaces — beautiful, durable structures crafted to enhance any property.",
             "icon": "pergola",
-            "title": "Pergolas & Cabanas"
+            "title": "Pergolas"
           },
           {
             "_key": "7f964a28f48549b1",
             "_type": "serviceItem",
-            "description": "Interior and exterior decoration, finishing carpentry, and curated material selection.",
+            "description": "Interior and exterior decorative finishes, landscaping, outdoor décor, and aesthetic detailing that transform spaces into stunning environments.",
             "icon": "sparkles",
             "title": "Decorations & Finishing"
-          }
-        ],
-        "visible": true
-      },
-      {
-        "_key": "f517252029cf4627",
-        "_type": "aboutBlock",
-        "badgeLabel": "Years of experience",
-        "badgeValue": "15+",
-        "body": "We operate as a vertically integrated group: construction, real estate, finishing, and exclusive distribution of premium window coverings through our partnership with Style by Global. That means fewer middlemen, faster decisions, and a single team accountable for the result.",
-        "eyebrow": "About LNH & Partner",
-        "headingAccent": "trust and precision.",
-        "headingStart": "An engineering-led group, built on",
-        "highlights": [
-          {
-            "_key": "90c43fd4121c4dc1",
-            "_type": "aboutHighlight",
-            "text": "Licensed & insured in Florida"
           },
           {
-            "_key": "8319a061493b4784",
-            "_type": "aboutHighlight",
-            "text": "In-house design & engineering"
+            "_key": "fb7c5dbd46f0454f",
+            "_type": "serviceItem",
+            "description": "End-to-end project management from planning and permitting through completion — on time, on budget, every time.",
+            "icon": "clipboard",
+            "title": "Project Management"
           },
           {
-            "_key": "ef0ad8892aa3442f",
-            "_type": "aboutHighlight",
-            "text": "Transparent fixed-price quotes"
+            "_key": "82ddabb5d75e42e8",
+            "_type": "serviceItem",
+            "description": "Property development, acquisition, sales, and management. We connect clients with the right properties and investment opportunities.",
+            "icon": "key",
+            "title": "Real Estate"
           },
           {
-            "_key": "b167124f68cd4706",
-            "_type": "aboutHighlight",
-            "text": "On-site project supervision"
-          }
-        ],
-        "image": {
-          "_type": "image",
-          "alt": "LNH & Partner team on site",
-          "asset": {
-            "_ref": "image-b492baa35e1a6af878bedc1ba9a166ac21c52ad2-1600x1067-jpg",
-            "_type": "reference"
-          }
-        },
-        "lead": "Founded by a Civil Engineer with two decades of hands-on experience, LNH & Partner brings the discipline of engineering to every project — whether it's a home renovation, a road extension or a real estate transaction.",
-        "visible": true
-      },
-      {
-        "_key": "4111207b48b9417c",
-        "_type": "whyBlock",
-        "eyebrow": "Why LNH & Partner",
-        "headingAccent": "coming back.",
-        "headingStart": "Five reasons clients keep",
-        "points": [
-          {
-            "_key": "a3bd89d723f14223",
-            "_type": "whyPoint",
-            "description": "Founded and led by a Civil Engineer, every decision is grounded in technical rigor — not improvisation.",
-            "title": "Engineering-led leadership"
+            "_key": "d65e473f2a3a466c",
+            "_type": "serviceItem",
+            "description": "Residential, commercial, and industrial construction projects built to the highest standards of quality, safety, and durability.",
+            "icon": "building",
+            "title": "Building Construction"
           },
           {
-            "_key": "8c4acd83e46c4c75",
-            "_type": "whyPoint",
-            "description": "From the first sketch to the final keys, you deal with one team that owns the result end-to-end.",
-            "title": "Single accountable partner"
+            "_key": "adceedb746534445",
+            "_type": "serviceItem",
+            "description": "Roads, utilities, bridges, drainage systems, and public works infrastructure — engineered for longevity and performance.",
+            "icon": "road",
+            "title": "Infrastructure"
           },
           {
-            "_key": "d931684cb0fd49f7",
-            "_type": "whyPoint",
-            "description": "Construction, real estate brokerage, and finishing under one roof — fewer middlemen, faster decisions.",
-            "title": "Vertical integration"
-          },
-          {
-            "_key": "a0dad7b0254a4e6d",
-            "_type": "whyPoint",
-            "description": "Exclusive representation of Style by Global brings world-class window coverings into every build.",
-            "title": "Premium partnerships"
-          },
-          {
-            "_key": "eaddeebe65994b58",
-            "_type": "whyPoint",
-            "description": "Predictable scheduling and transparent cost control — backed by 200+ projects already delivered.",
-            "title": "On-time, on-budget"
-          }
-        ],
-        "visible": true
-      },
-      {
-        "_key": "4a1b3a51afdb48e8",
-        "_type": "projectsBlock",
-        "eyebrow": "Featured projects",
-        "headingAccent": "every category we touch.",
-        "headingStart": "A track record built across",
-        "projects": [
-          {
-            "_key": "fa0b2c1000a841b0",
-            "_type": "project",
-            "category": "Residential Construction",
-            "description": "Ground-up build of a 6,200 sq ft modern coastal home with hurricane-rated glazing and full smart-home integration.",
-            "image": {
-              "_type": "image",
-              "alt": "Coastal Residence — Coral Gables",
-              "asset": {
-                "_ref": "image-ed43ad4caf7cad38c50c6b187acaa1fbb75a6035-1400x933-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Coastal Residence — Coral Gables"
-          },
-          {
-            "_key": "8f307b0ba51b4241",
-            "_type": "project",
-            "category": "Infrastructure",
-            "description": "Civil works for a 3.4 km road extension, including drainage, signage, and lighting infrastructure.",
-            "image": {
-              "_type": "image",
-              "alt": "Highway Extension — Miami-Dade",
-              "asset": {
-                "_ref": "image-088acc0692e9678620cb2ee88d529423c82f2839-1400x933-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Highway Extension — Miami-Dade"
-          },
-          {
-            "_key": "1b94ba869a264cbe",
-            "_type": "project",
-            "category": "Renovation",
-            "description": "Full gut renovation of a 2,800 sq ft urban loft, including structural reconfiguration and bespoke finishes.",
-            "image": {
-              "_type": "image",
-              "alt": "Brickell Loft Renovation",
-              "asset": {
-                "_ref": "image-cc31a7228cadaacb43933ac1ac263dcb318686fd-1400x933-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Brickell Loft Renovation"
-          },
-          {
-            "_key": "65fe50bc300142b6",
-            "_type": "project",
-            "category": "Earthworks",
-            "description": "Site preparation and grading for a 12-acre logistics yard with reinforced subgrade and stormwater management.",
-            "image": {
-              "_type": "image",
-              "alt": "Logistics Yard — West Miami",
-              "asset": {
-                "_ref": "image-e5c2c8100afb34cb9d9db7de7e6b1ca3ca2d2331-1400x934-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Logistics Yard — West Miami"
-          },
-          {
-            "_key": "e9f8f791a1304190",
-            "_type": "project",
-            "category": "Real Estate",
-            "description": "Strategic listing and brokerage of a Bayview penthouse, closing 6% above asking in 23 days.",
-            "image": {
-              "_type": "image",
-              "alt": "Bayview Penthouse Sale",
-              "asset": {
-                "_ref": "image-48aab4be58b5cb1e986c79820423c2d814fab574-1400x929-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Bayview Penthouse Sale"
-          },
-          {
-            "_key": "8d4e1ba4f55f469b",
-            "_type": "project",
-            "category": "Pergolas & Outdoor",
-            "description": "Design and installation of 14 custom aluminum pergolas with motorized louvers for a beachfront boutique hotel.",
-            "image": {
-              "_type": "image",
-              "alt": "Boutique Hotel Pergolas",
-              "asset": {
-                "_ref": "image-d80d35d1efd000110fba86310d1f6a2951cb703f-1400x933-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Boutique Hotel Pergolas"
+            "_key": "2390e39bce774bf9",
+            "_type": "serviceItem",
+            "description": "Excavation, grading, land clearing, and site preparation with modern machinery and experienced operators.",
+            "icon": "shovel",
+            "title": "Earthworks"
           }
         ],
         "visible": true
@@ -307,15 +126,16 @@
         "_type": "pergolasBlock",
         "ctaHref": "#contact",
         "ctaLabel": "Get a free quote",
-        "eyebrow": "Pergolas, Sunrooms & Outdoor Spaces",
+        "eyebrow": "Also Available",
         "features": [
-          "Custom aluminum and timber pergolas, cabanas and sunrooms",
-          "Engineered for South Florida wind, sun and humidity",
-          "Motorized louvers, integrated lighting and rain sensors",
-          "Glass sliding wall enclosures for year-round outdoor living"
+          "Custom pergolas & cabanas tailored to your space and style",
+          "Sunrooms & glass sliding wall enclosures",
+          "Premium materials — wood, aluminum, and composite",
+          "Integrated lighting, curtains, and shade options",
+          "Residential & commercial installations"
         ],
-        "headingAccent": "South Florida.",
-        "headingStart": "Outdoor living, engineered for",
+        "headingAccent": "outdoor spaces.",
+        "headingStart": "Pergolas, sunrooms &",
         "image": {
           "_type": "image",
           "alt": "Pergola",
@@ -324,89 +144,7 @@
             "_type": "reference"
           }
         },
-        "visible": true
-      },
-      {
-        "_key": "f5c7c747e5fe41fa",
-        "_type": "galleryBlock",
-        "eyebrow": "Gallery",
-        "headingAccent": "work in motion.",
-        "headingStart": "A glimpse of our",
-        "images": [
-          {
-            "_key": "48a3720a98a74f88",
-            "_type": "galleryImage",
-            "alt": "High-rise construction at sunset",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-d6e39d565d09cf375ae43712ce9cf9b3a61e00be-1400x788-jpg",
-                "_type": "reference"
-              }
-            }
-          },
-          {
-            "_key": "a0414d73a20e42db",
-            "_type": "galleryImage",
-            "alt": "Civil engineer reviewing blueprints on site",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-a54bd524bfe2da4aae8a2d60bc41722d826faf7d-1400x933-jpg",
-                "_type": "reference"
-              }
-            }
-          },
-          {
-            "_key": "2556165355244531",
-            "_type": "galleryImage",
-            "alt": "Heavy machinery during earthworks",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-84b02ff3e8e207f2549800670b7ef2533e510697-1400x927-jpg",
-                "_type": "reference"
-              }
-            }
-          },
-          {
-            "_key": "2013f1b6675542c5",
-            "_type": "galleryImage",
-            "alt": "Modern interior renovation finished",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-a9f62b2ab11e462453816427c4a85fb3355b4263-1400x933-jpg",
-                "_type": "reference"
-              }
-            }
-          },
-          {
-            "_key": "ea8f9a69c5e247f3",
-            "_type": "galleryImage",
-            "alt": "Luxury residential property exterior",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-e5616dd396b5e5aa10f4d2e60d984c5d1984f786-1400x952-jpg",
-                "_type": "reference"
-              }
-            }
-          },
-          {
-            "_key": "27730350f43d4c59",
-            "_type": "galleryImage",
-            "alt": "Outdoor pergola installation",
-            "image": {
-              "_type": "image",
-              "asset": {
-                "_ref": "image-dc297d4dc9732aa88f110d0dcd322b5be42d881d-1400x933-jpg",
-                "_type": "reference"
-              }
-            }
-          }
-        ],
-        "lead": "Click any image to enlarge.",
+        "lead": "We design and build custom pergolas and outdoor structures that blend beauty with durability — perfect for residential patios, commercial terraces, and everything in between.",
         "visible": true
       },
       {
@@ -414,81 +152,246 @@
         "_type": "partnerBlock",
         "ctaHref": "https://www.stylebyglobal.com",
         "ctaLabel": "Visit Style by Global",
-        "eyebrow": "In partnership with",
+        "eyebrow": "Our Partners",
         "headingAccent": "Style by Global.",
-        "headingStart": "Exclusive representatives of",
-        "lead": "Through our partnership we deliver premium roller blinds, plantation shutters, motorized smart blinds and decorative window solutions to every project.",
+        "headingStart": "Proud representatives of",
+        "lead": "LNH & Partner is the authorized representative of Style by Global — an international group of companies specializing in premium window coverings, blinds, shutters, and interior decoration solutions available across every continent.",
         "products": [
           {
             "_key": "3cf67953e34a4b5d",
             "_type": "partnerProduct",
-            "description": "Premium roller blinds in dim-out and blackout fabrics, motorized options available.",
-            "image": {
-              "_type": "image",
-              "alt": "Roller Blinds",
-              "asset": {
-                "_ref": "image-365eebcc2254f9ee8bc0dee8a34139e6a8889ed1-1200x675-jpg",
-                "_type": "reference"
-              }
-            },
+            "description": "Blackout, light-filtering, motorized and cassetted roller blinds — from subtle sheers to complete blackout systems for any environment.",
+            "image": "/assets/images/blinds-roller.jpg",
             "title": "Roller Blinds"
           },
           {
             "_key": "c1f23fcf79144de1",
             "_type": "partnerProduct",
-            "description": "Solid-wood and composite plantation shutters with full-height and café-style configurations.",
-            "image": {
-              "_type": "image",
-              "alt": "Plantation Shutters",
-              "asset": {
-                "_ref": "image-ccc4fc19d4b9760e69030ada705b80281ba161e6-1200x1200-jpg",
-                "_type": "reference"
-              }
-            },
+            "description": "Hand-built plantation shutters and premium shutter systems offering elegance, light control, and lasting durability for residential and commercial spaces.",
+            "image": "/assets/images/blinds-plantation-shutters.jpg",
             "title": "Plantation Shutters"
           },
           {
             "_key": "ece2163618fa4754",
             "_type": "partnerProduct",
-            "description": "Aluminum, wood and PVC slat blinds for offices, residences and commercial spaces.",
-            "image": {
-              "_type": "image",
-              "alt": "Vertical & Venetian Blinds",
-              "asset": {
-                "_ref": "image-8157390a9bd702c370f4ae05596622a879226022-1200x1200-jpg",
-                "_type": "reference"
-              }
-            },
+            "description": "Fabric, PVC, and aluminum vertical blinds ideal for large windows, bi-fold doors, sliding doors, terraces, and patio openings.",
+            "image": "/assets/images/blinds-venetian.jpg",
             "title": "Vertical & Venetian Blinds"
           },
           {
             "_key": "79524106ce0646b3",
             "_type": "partnerProduct",
-            "description": "Smart-home compatible motorized blinds with app, voice and scheduling control.",
-            "image": {
-              "_type": "image",
-              "alt": "Motorized Smart Blinds",
-              "asset": {
-                "_ref": "image-3f34005bc5350acf28f5699ba4e6ae7605f21922-1200x900-jpg",
-                "_type": "reference"
-              }
-            },
-            "title": "Motorized Smart Blinds"
+            "description": "Wireless, battery-powered motorized blinds with smart home integration — control light and privacy at the touch of a button or voice command.",
+            "image": "/assets/images/blinds-motorized-smart.jpg",
+            "title": "Motorized & Smart Blinds"
           }
         ],
         "visible": true
       },
       {
+        "_key": "f517252029cf4627",
+        "_type": "aboutBlock",
+        "badgeLabel": "Years of Excellence",
+        "badgeValue": "15+",
+        "eyebrow": "About Us",
+        "headingAccent": "built on trust.",
+        "headingStart": "Remodeling experts,",
+        "highlights": [
+          {
+            "_key": "90c43fd4121c4dc1",
+            "_type": "aboutHighlight",
+            "text": "Specialists in kitchen, bathroom & full home remodeling"
+          },
+          {
+            "_key": "8319a061493b4784",
+            "_type": "aboutHighlight",
+            "text": "Licensed and insured across all construction specialties"
+          },
+          {
+            "_key": "ef0ad8892aa3442f",
+            "_type": "aboutHighlight",
+            "text": "In-house design and project management teams"
+          },
+          {
+            "_key": "b167124f68cd4706",
+            "_type": "aboutHighlight",
+            "text": "Transparent communication from estimate to completion"
+          },
+          {
+            "_key": "c2f8a1d4e5b60705",
+            "_type": "aboutHighlight",
+            "text": "Committed to quality craftsmanship and lasting results"
+          }
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "LNH & Partner renovation work",
+          "asset": {
+            "_ref": "image-b492baa35e1a6af878bedc1ba9a166ac21c52ad2-1600x1067-jpg",
+            "_type": "reference"
+          }
+        },
+        "lead": "LNH & Partner specializes in renovations and remodeling — transforming homes and commercial spaces with quality craftsmanship. We also provide complete construction, project management, and real estate support for total peace of mind.",
+        "visible": true
+      },
+      {
+        "_key": "4111207b48b9417c",
+        "_type": "whyBlock",
+        "eyebrow": "Why LNH & Partner",
+        "headingAccent": "difference.",
+        "headingStart": "The LNH",
+        "lead": "What sets us apart is not just what we build, but how we build it — with integrity, precision, and a relentless commitment to excellence.",
+        "points": [
+          {
+            "_key": "a3bd89d723f14223",
+            "_type": "whyPoint",
+            "description": "Decades of hands-on experience across construction, earthworks, infrastructure, and real estate sectors.",
+            "title": "Expertise"
+          },
+          {
+            "_key": "8c4acd83e46c4c75",
+            "_type": "whyPoint",
+            "description": "We honor our commitments. Deadlines and budgets are respected — always. No surprises, no excuses.",
+            "title": "Reliability"
+          },
+          {
+            "_key": "d931684cb0fd49f7",
+            "_type": "whyPoint",
+            "description": "We embrace modern techniques, materials, and technologies to deliver superior outcomes efficiently.",
+            "title": "Innovation"
+          },
+          {
+            "_key": "a0dad7b0254a4e6d",
+            "_type": "whyPoint",
+            "description": "Rigorous safety protocols across every site. Zero-compromise approach to protecting our people and clients.",
+            "title": "Safety First"
+          },
+          {
+            "_key": "eaddeebe65994b58",
+            "_type": "whyPoint",
+            "description": "Honest pricing, transparent processes, and clear communication build trust that lasts beyond the project.",
+            "title": "Integrity"
+          }
+        ],
+        "visible": true
+      },
+      {
+        "_key": "4a1b3a51afdb48e8",
+        "_type": "projectsBlock",
+        "eyebrow": "Our Work",
+        "headingAccent": "projects.",
+        "headingStart": "Featured",
+        "projects": [
+          {
+            "_key": "fa0b2c1000a841b0",
+            "_type": "project",
+            "category": "Renovation",
+            "description": "Complete interior renovation of a 5-floor corporate headquarters with open-plan design and premium finishes.",
+            "image": "/assets/images/e5616dd396b5e5aa10f4d2e60d984c5d1984f786-1400x952.jpg",
+            "title": "Corporate HQ Renovation"
+          },
+          {
+            "_key": "8f307b0ba51b4241",
+            "_type": "project",
+            "category": "Construction",
+            "description": "Multi-story commercial office building — full structural, MEP, and finishing works delivered on schedule.",
+            "image": "/assets/images/a54bd524bfe2da4aae8a2d60bc41722d826faf7d-1400x933.jpg",
+            "title": "Commercial Office Complex"
+          },
+          {
+            "_key": "1b94ba869a264cbe",
+            "_type": "project",
+            "category": "Earthworks",
+            "description": "Large-scale earthworks, land clearing, and site leveling for a 40-acre industrial park development.",
+            "image": "/assets/images/earthworks-excavator.jpg",
+            "title": "Industrial Site Preparation"
+          },
+          {
+            "_key": "65fe50bc300142b6",
+            "_type": "project",
+            "category": "Real Estate",
+            "description": "48-unit residential development including land acquisition, construction, and full handover to buyers.",
+            "image": "/assets/images/48aab4be58b5cb1e986c79820423c2d814fab574-1400x929.jpg",
+            "title": "Residential Development"
+          },
+          {
+            "_key": "e9f8f791a1304190",
+            "_type": "project",
+            "category": "Infrastructure",
+            "description": "Design and construction of 12km of urban roads including drainage, signage, and utility integration.",
+            "image": "/assets/images/road-construction.jpg",
+            "title": "Urban Road Network"
+          },
+          {
+            "_key": "8d4e1ba4f55f469b",
+            "_type": "project",
+            "category": "Infrastructure",
+            "description": "Design and installation of water supply and drainage infrastructure for a new residential district.",
+            "image": "/assets/images/water-infrastructure.jpg",
+            "title": "Municipal Water System"
+          }
+        ],
+        "visible": true
+      },
+      {
+        "_key": "f5c7c747e5fe41fa",
+        "_type": "galleryBlock",
+        "eyebrow": "Photo Gallery",
+        "headingAccent": "in action.",
+        "headingStart": "Our work",
+        "images": [
+          {
+            "_key": "48a3720a98a74f88",
+            "_type": "galleryImage",
+            "alt": "Construction in progress",
+            "image": "/assets/images/84b02ff3e8e207f2549800670b7ef2533e510697-1400x927.jpg"
+          },
+          {
+            "_key": "a0414d73a20e42db",
+            "_type": "galleryImage",
+            "alt": "Completed residence",
+            "image": "/assets/images/ed43ad4caf7cad38c50c6b187acaa1fbb75a6035-1400x933.jpg"
+          },
+          {
+            "_key": "2556165355244531",
+            "_type": "galleryImage",
+            "alt": "Interior remodel",
+            "image": "/assets/images/cc31a7228cadaacb43933ac1ac263dcb318686fd-1400x933.jpg"
+          },
+          {
+            "_key": "2013f1b6675542c5",
+            "_type": "galleryImage",
+            "alt": "Finished interior",
+            "image": "/assets/images/a9f62b2ab11e462453816427c4a85fb3355b4263-1400x933.jpg"
+          },
+          {
+            "_key": "ea8f9a69c5e247f3",
+            "_type": "galleryImage",
+            "alt": "Outdoor & pool",
+            "image": "/assets/images/d80d35d1efd000110fba86310d1f6a2951cb703f-1400x933.jpg"
+          },
+          {
+            "_key": "27730350f43d4c59",
+            "_type": "galleryImage",
+            "alt": "Decoration & finishing",
+            "image": "/assets/images/365eebcc2254f9ee8bc0dee8a34139e6a8889ed1-1200x675.jpg"
+          }
+        ],
+        "lead": "A visual showcase of our projects, team, and the quality of craftsmanship we bring to every site.",
+        "visible": true
+      },
+      {
         "_key": "293c9f6340dd427d",
         "_type": "teamBlock",
-        "eyebrow": "Leadership",
+        "eyebrow": "Meet the Team",
         "headingAccent": "every project.",
         "headingStart": "The people behind",
+        "lead": "Our leadership team brings decades of combined experience in construction, engineering, and real estate to every project we undertake.",
         "members": [
           {
             "_key": "d3ab28db8c894bc9",
             "_type": "teamMember",
-            "bio": "Civil Engineer (Universidad Santa María) with over two decades leading construction operations. Founder and former president of LOH Ingeniería, C.A.",
+            "bio": "Civil Engineer graduated from Universidad Santa María. Founder of LOH Ingeniería C.A. with extensive experience in construction management, infrastructure, and large-scale development projects.",
             "image": {
               "_type": "image",
               "alt": "Luis Orangel Herrera Gómez",
@@ -503,7 +406,7 @@
           {
             "_key": "41127bce6adc42ef",
             "_type": "teamMember",
-            "bio": "Licensed Florida realtor specializing in residential and commercial property strategy, acquisitions and brokerage across the Miami market.",
+            "bio": "Licensed real estate professional specializing in residential and commercial property acquisition, sales, and investment. Dedicated to connecting clients with the right properties and opportunities.",
             "image": {
               "_type": "image",
               "alt": "Nilyan Herrera Gómez",
@@ -521,42 +424,42 @@
       {
         "_key": "7b37d7d5944f4167",
         "_type": "testimonialsBlock",
-        "eyebrow": "Client voices",
-        "headingAccent": "developers and investors.",
-        "headingStart": "Trusted by homeowners,",
+        "eyebrow": "Client Reviews",
+        "headingAccent": "clients say.",
+        "headingStart": "What our",
         "items": [
           {
             "_key": "aeafefef6cfc4bf9",
             "_type": "testimonial",
-            "author": "Marina F.",
-            "quote": "LNH delivered our home one week ahead of schedule and under budget. The engineering attention to detail was unlike anything we had experienced before.",
-            "role": "Homeowner — Coral Gables"
+            "author": "Sofia Larsen",
+            "quote": "The renovation of our headquarters was flawless. LNH handled every detail from design to final finish — absolutely recommend them for any remodeling project.",
+            "role": "Larsen Properties"
           },
           {
             "_key": "a568a72ae0344743",
             "_type": "testimonial",
-            "author": "David & Patricia R.",
-            "quote": "They handled the brokerage and the renovation as one seamless project. We closed and moved in within 90 days.",
-            "role": "Investors — Brickell"
+            "author": "James Morrison",
+            "quote": "LNH & Partner delivered our commercial building ahead of schedule and the quality exceeded every expectation. Their team was professional, communicative, and truly dedicated.",
+            "role": "Morrison Group LLC"
           },
           {
             "_key": "7bf0794311d74581",
             "_type": "testimonial",
-            "author": "Carlos M.",
-            "quote": "The pergola installation transformed our beachfront property. Quality and finish are first-class.",
-            "role": "Hotel Owner — Miami Beach"
+            "author": "Robert Chen",
+            "quote": "From site preparation to final delivery, LNH & Partner was the most professional contractor we've worked with. They treated our project like it was their own.",
+            "role": "Pacific Development Co."
           }
         ],
-        "visible": true
+        "visible": false
       },
       {
         "_key": "fb3d89d61dda42a5",
         "_type": "contactBlock",
-        "eyebrow": "Contact",
+        "eyebrow": "Get In Touch",
         "formspreeId": "your-form-id",
-        "headingAccent": "We reply within 24 hours.",
-        "headingStart": "Tell us about your project.",
-        "lead": "Whether it's a renovation, a ground-up build or a real estate enquiry — share a few details and the team will be in touch.",
+        "headingAccent": "your project.",
+        "headingStart": "Let's start",
+        "lead": "Tell us about your project and our team will get back to you within 24 hours with a detailed consultation and proposal.",
         "visible": true
       }
     ],
@@ -568,8 +471,8 @@
     "_rev": "Azr6jnPnblfJFZmxpZl1L2",
     "_type": "siteConfig",
     "_updatedAt": "2026-04-17T23:27:32Z",
-    "address": "Miami, Florida",
-    "description": "LNH & Partner is a Miami-based group delivering construction, renovations, earthworks, infrastructure, real estate, pergolas and decoration services with engineering-grade quality.",
+    "address": "Miami, Florida, USA",
+    "description": "LNH & Partner — Miami's renovation and remodeling specialists. Kitchens, bathrooms, full homes, and commercial spaces, backed by complete construction support.",
     "email": "info@lnhpartner.com",
     "emailHref": "mailto:info@lnhpartner.com",
     "name": "LNH & Partner",
@@ -595,14 +498,8 @@
       {
         "_key": "f051774e52314ac2",
         "_type": "navLink",
-        "href": "#pergolas",
-        "label": "Pergolas"
-      },
-      {
-        "_key": "f071c09f11084834",
-        "_type": "navLink",
-        "href": "#partners",
-        "label": "Partners"
+        "href": "#gallery",
+        "label": "Gallery"
       },
       {
         "_key": "8c3ac1ca32864c30",
@@ -621,7 +518,7 @@
     "partnerUrl": "https://www.stylebyglobal.com",
     "phone": "+1 786 658 0795",
     "phoneHref": "tel:+17866580795",
-    "tagline": "Building, Renovations, Earthworks, Infrastructure & Real Estate",
+    "tagline": "Renovation & Remodeling Specialists",
     "url": "https://www.lnhpartner.com",
     "whatsappHref": "https://wa.me/447850766016?text=Hi%20LNH%20%26%20Partner%2C%20I%27d%20like%20to%20request%20a%20quote."
   }

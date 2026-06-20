@@ -21,12 +21,21 @@ const services = block?.services ?? [];
       {
         services.map((service: any, i: number) => (
           <article
-            class="group relative isolate overflow-hidden rounded-xl bg-navy-50/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-card-hover reveal"
+            class:list={[
+              'group relative isolate overflow-hidden rounded-xl p-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-card-hover reveal',
+              service.badge ? 'bg-white ring-1 ring-gold-500/40 shadow-card' : 'bg-navy-50/60',
+            ]}
             style={`transition-delay: ${i * 60}ms`}
           >
-            <span class="absolute right-5 top-5 font-display text-xs font-bold tracking-[0.2em] text-navy-900/30 transition-colors duration-500 group-hover:text-gold-500">
-              {String(i + 1).padStart(2, '0')}
-            </span>
+            {service.badge ? (
+              <span class="absolute right-5 top-5 rounded-full bg-gold-500 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
+                {service.badge}
+              </span>
+            ) : (
+              <span class="absolute right-5 top-5 font-display text-xs font-bold tracking-[0.2em] text-navy-900/30 transition-colors duration-500 group-hover:text-gold-500">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            )}
 
             <div class="mb-7 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-navy-800 transition-all duration-500 group-hover:bg-navy-900 group-hover:text-gold-400">
               <Icon name={service.icon} class="h-5 w-5" />
