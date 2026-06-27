@@ -223,14 +223,7 @@
             "text": "Committed to quality craftsmanship and lasting results"
           }
         ],
-        "image": {
-          "_type": "image",
-          "alt": "LNH & Partner renovation work",
-          "asset": {
-            "_ref": "image-b492baa35e1a6af878bedc1ba9a166ac21c52ad2-1600x1067-jpg",
-            "_type": "reference"
-          }
-        },
+        "image": "/assets/images/about-before.png",
         "lead": "LNH & Partner specializes in renovations and remodeling — transforming homes and commercial spaces with quality craftsmanship. We also provide complete construction, project management, and real estate support for total peace of mind.",
         "visible": true
       },
@@ -378,7 +371,7 @@
           }
         ],
         "lead": "A visual showcase of our projects, team, and the quality of craftsmanship we bring to every site.",
-        "visible": true
+        "visible": false
       },
       {
         "_key": "293c9f6340dd427d",
@@ -520,6 +513,6 @@
     "phoneHref": "tel:+17866580795",
     "tagline": "Renovation & Remodeling Specialists",
     "url": "https://www.lnhpartner.com",
-    "whatsappHref": "https://wa.me/447850766016?text=Hi%20LNH%20%26%20Partner%2C%20I%27d%20like%20to%20request%20a%20quote."
+    "whatsappHref": "https://wa.me/17866580795?text=Hi%20LNH%20%26%20Partner%2C%20I%27d%20like%20to%20request%20a%20quote."
   }
 }
